@@ -21,11 +21,11 @@ public class Animal {
         return id;
     }
 
-    public String getName() {
+    public String getNome() {
         return nome;
     }
 
-    public String getBreed() {
+    public String getRaca() {
         return raca;
     }
 }

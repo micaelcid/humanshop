@@ -12,7 +12,7 @@ public class AnimalDAO {
         try {
             connection = ConnectionFactory.getConnection();
         } catch(SQLException e) {
-            System.out.println("Conexão com o banco de dados falhou." + e);
+            System.out.println("Database Connection Failed." + e);
         }
     }
 
@@ -57,8 +57,8 @@ public class AnimalDAO {
         PreparedStatement preparedStatement = connection.prepareStatement(
                 "INSERT INTO animal(nome, raca) VALUES(?, ?)"
         );
-        preparedStatement.setString(1, animal.getName());
-        preparedStatement.setString(2, animal.getBreed());
+        preparedStatement.setString(1, animal.getNome());
+        preparedStatement.setString(2, animal.getRaca());
 
         if(preparedStatement.execute()) {
             System.out.println("Pet successfully created.");
@@ -84,8 +84,8 @@ public class AnimalDAO {
 
             System.out.println("------------------------------------");
             System.out.println("ID: " + animal.getId());
-            System.out.println("Name:  " + animal.getName());
-            System.out.println("Breed:  " + animal.getBreed());
+            System.out.println("Name:  " + animal.getNome());
+            System.out.println("Breed:  " + animal.getRaca());
         }
     }
 
@@ -93,8 +93,8 @@ public class AnimalDAO {
         PreparedStatement preparedStatement = connection.prepareStatement(
                 "UPDATE animal SET nome=?, raca=? WHERE id=?"
         );
-        preparedStatement.setString(1, animal.getName());
-        preparedStatement.setString(2, animal.getBreed());
+        preparedStatement.setString(1, animal.getNome());
+        preparedStatement.setString(2, animal.getRaca());
         preparedStatement.setString(3, Integer.toString(animal.getId()));
 
         if(preparedStatement.execute()) {
