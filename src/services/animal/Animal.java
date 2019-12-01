@@ -1,6 +1,4 @@
-package animal;
-
-import java.sql.Timestamp;
+package services.animal;
 
 public class Animal {
     private int id;
